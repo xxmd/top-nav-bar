@@ -1,0 +1,3 @@
+rootProject.name = "top-nav-bar"
+include ':app'
+include ':mylibrary'
