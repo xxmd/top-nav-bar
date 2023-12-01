@@ -3,10 +3,13 @@ package io.github.xxmd;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -68,9 +71,19 @@ public class TopNavBar extends FrameLayout {
     }
 
     private void initView() {
+        ViewGroup.LayoutParams layoutParams = binding.statusBar.getLayoutParams();
+        layoutParams.height = getStatusBarHeight();
+        binding.statusBar.setLayoutParams(layoutParams);
+
         if (typedArray != null) {
             initViewByTypedArray();
         }
+    }
+
+    private int getStatusBarHeight() {
+        int statusBarHeightId = getContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int statusBarHeight = getContext().getResources().getDimensionPixelSize(statusBarHeightId);
+        return statusBarHeight;
     }
 
     private void initViewByTypedArray() {
@@ -84,7 +97,7 @@ public class TopNavBar extends FrameLayout {
 
         Drawable rightIcon = typedArray.getDrawable(R.styleable.TopNavBar_rightIcon);
         if (rightIcon != null) {
-            binding.ivRightIcon.setImageDrawable(leftIcon);
+            binding.ivRightIcon.setImageDrawable(rightIcon);
         } else {
             binding.ivRightIcon.setVisibility(GONE);
         }
