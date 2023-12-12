@@ -52,7 +52,7 @@ afterEvaluate {
 ext {
     publishedGroupId = 'io.github.xxmd'
     artifact = 'top-nav-bar'
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0.3'
     libraryDescription = 'Top navigation bar for android page'
     siteUrl = 'https://github.com/xxmd/' + artifact
 }

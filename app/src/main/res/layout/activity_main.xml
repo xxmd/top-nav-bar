@@ -8,6 +8,8 @@
     tools:context=".MainActivity">
 
     <io.github.xxmd.TopNavBar
+        app:leftIconTint="@android:color/holo_red_dark"
+        app:titleColor="@android:color/holo_green_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Home"/>
